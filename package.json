@@ -1,0 +1,17 @@
+{
+  "name": "bauprojekt-be",
+  "version": "1.0.0",
+  "description": "zahtevi",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server",
+    "dev": "nodemon server"    
+  },
+  "author": "Jovan Milojevic",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^7.0.4",
+    "nodemon": "^2.0.22"
+  }
+}
