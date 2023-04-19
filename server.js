@@ -1,20 +1,79 @@
+require('dotenv').config();
 const express = require("express");
+const mongoose = require("mongoose");
+const Zahtev = require('./models/zahtevModel')
 const app = express();
-const mongoose = require('mongoose');
-app.use(express.json());
 
-const connectDB = require('./config/dbConn');
-const zahtevRouter = require('./routes/noviZahtev');
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 const PORT = process.env.PORT || 3000;
-app.use('/zahtevi', zahtevRouter);
 
-connectDB();
-
-app.get("/", (req, res) => {
-  res.send("Hello Node API!");
+app.get('/zahtevi', async(req, res) => {
+  try {
+    const zahtevi = await Zahtev.find({});
+    res.status(200).json(zahtevi)
+  } catch (error) {
+    res.status(500).json({ message: error.message })
+  }
 });
 
-app.listen(PORT, () => console.log(`Node API app is running on port ${PORT}`));
+app.get('/zahtevi/:id', async(req, res) => {
+  try {
+    const { id } = req.params;
+    const zahtev = await Zahtev.findById(id);
+    res.status(200).json(zahtev)
+  } catch (error) {
+    res.status(500).json({ message: error.message })
+  }
+})
 
+app.post('/zahtevi', async (req, res) => {
+  try {
+    const zahtev = await Zahtev.create(req.body)
+    res.status(200).json(zahtev);
 
+  } catch (error) {
+    console.log(error.message);
+    res.status(500).json({ message: error.message })
+  }
+})
+
+app.put('/zahtevi/:id', async(req, res) => {
+  try {
+    const { id } = req.params;
+    const zahtev = await Zahtev.findByIdAndUpdate(id, req.body);
+    if(!zahtev) {
+      return res.status(404).json({ message: `Cannot find any product with ID ${id}`})
+    }
+    const updatedZahtev = await Zahtev.findById(id)
+    res.status(200).json(updatedZahtev);
+  } catch (error) {
+    res.status(500).json({ message: error.message })
+  }
+})
+
+app.delete('/zahtevi/:id', async(req, res) => {
+  try {
+    const { id } = req.params;
+    const zahtev = await Zahtev.findByIdAndDelete(id);
+    if(!zahtev) {
+      return res.status(404).json({ message: `Cannot find any zahtev with ID ${id}`})
+    }
+    res.status(200).json(zahtev);
+  } catch (error) {
+    res.status(500).json({ message: error.message })
+  }
+})
+
+mongoose
+  .connect(process.env.DATABASE_URI)
+  .then(() => {
+    console.log("Connected to MongoDB");
+    app.listen(PORT , () =>
+      console.log(`Node API app is running on port ${PORT}`)
+    );
+  })
+  .catch((error) => {
+    console.log(error);
+  });

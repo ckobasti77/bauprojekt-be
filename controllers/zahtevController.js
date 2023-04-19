@@ -1,4 +1,4 @@
-const Zahtev = require("../model/Zahtev");
+const Zahtev = require("../models/zahtevModel");
 
 const handleNewZahtev = async (req, res) => {
   const {

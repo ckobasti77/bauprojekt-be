@@ -32,11 +32,11 @@ const zahtevSchema = new Schema({
   },
   parcele: [{
     broj: {
-        type: String,
+        type: Number,
         required: true,
     },
     podbroj: {
-        type: String,
+        type: Number,
         required: true,
     },
     katastarskaOpstina: {
@@ -75,6 +75,11 @@ const zahtevSchema = new Schema({
     type: String,
     required: true,
   },
+},
+{
+  timestamps: true,
 });
 
-module.exports = mongoose.model('Zahtev', zahtevSchema);
+const Zahtev = mongoose.model('Zahtev', zahtevSchema);
+
+module.exports = Zahtev;
