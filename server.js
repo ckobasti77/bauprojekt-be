@@ -6,7 +6,7 @@ const corsOptions = require('./config/corsOptions')
 const Zahtev = require("./models/zahtevModel");
 const app = express();
 
-app.use(cors(corsOptions));
+app.use(cors());
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
