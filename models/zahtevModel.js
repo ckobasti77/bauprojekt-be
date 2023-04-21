@@ -47,23 +47,29 @@ const zahtevSchema = new Schema({
   {
     broj: {
         type: String,
+        required: false
     },
     podbroj: {
         type: String,
+        required: false
     },
     katastarskaOpstina: {
         type: String,
+        required: false
     },
   },
   {
     broj: {
         type: String,
+        required: false
     },
     podbroj: {
         type: String,
+        required: false
     },
     katastarskaOpstina: {
         type: String,
+        required: false
     },
   }
 ],
