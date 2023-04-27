@@ -71,13 +71,115 @@ const zahtevSchema = new Schema({
         type: String,
         required: false
     },
-  }
+  },
+  {
+    broj: {
+        type: String,
+        required: false
+    },
+    podbroj: {
+        type: String,
+        required: false
+    },
+    katastarskaOpstina: {
+        type: String,
+        required: false
+    },
+  },
+  {
+    broj: {
+        type: String,
+        required: false
+    },
+    podbroj: {
+        type: String,
+        required: false
+    },
+    katastarskaOpstina: {
+        type: String,
+        required: false
+    },
+  },
+  {
+    broj: {
+        type: String,
+        required: false
+    },
+    podbroj: {
+        type: String,
+        required: false
+    },
+    katastarskaOpstina: {
+        type: String,
+        required: false
+    },
+  },
+  {
+    broj: {
+        type: String,
+        required: false
+    },
+    podbroj: {
+        type: String,
+        required: false
+    },
+    katastarskaOpstina: {
+        type: String,
+        required: false
+    },
+  },
+  {
+    broj: {
+        type: String,
+        required: false
+    },
+    podbroj: {
+        type: String,
+        required: false
+    },
+    katastarskaOpstina: {
+        type: String,
+        required: false
+    },
+  },
+  {
+    broj: {
+        type: String,
+        required: false
+    },
+    podbroj: {
+        type: String,
+        required: false
+    },
+    katastarskaOpstina: {
+        type: String,
+        required: false
+    },
+  },
+  {
+    broj: {
+        type: String,
+        required: false
+    },
+    podbroj: {
+        type: String,
+        required: false
+    },
+    katastarskaOpstina: {
+        type: String,
+        required: false
+    },
+  },
 ],
   vrstaZahteva: {
     type: String,
     required: true,
   },
   dostavitiPutem: {
+    type: String,
+    required: true,
+  },
+  statusZahteva: {
     type: String,
     required: true,
   },
