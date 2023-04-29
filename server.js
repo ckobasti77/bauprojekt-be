@@ -52,7 +52,7 @@ app.post("/zahtevi", async (req, res) => {
 
     let message = {
       from: process.env.EMAIL,
-      to: "jocikam738@gmail.com",
+      to: "jocikam738@gmail.com, informacijaolokaciji@bauprojekt.rs, milan89vucinic@gmail.com",
       subject: "Novi Zahtev",
       html: `
       <div style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
