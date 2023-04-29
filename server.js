@@ -38,8 +38,6 @@ app.post("/zahtevi", async (req, res) => {
   try {
     const zahtev = await Zahtev.create(req.body);
 
-    res.status(200).json(zahtev)
-
     let config = {
       service: "gmail",
       auth: {
