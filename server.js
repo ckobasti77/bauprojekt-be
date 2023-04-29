@@ -38,6 +38,8 @@ app.post("/zahtevi", async (req, res) => {
   try {
     const zahtev = await Zahtev.create(req.body);
 
+    res.status(200).json(zahtev)
+
     let config = {
       service: "gmail",
       auth: {
@@ -268,10 +270,8 @@ app.post("/zahtevi", async (req, res) => {
 
     transporter
       .sendMail(message)
-      .then(() => {
-        return res.status(201).json({
-          message: "You should receive a mail",
-        });
+      .then((message) => {
+        console.log(message);
       })
       .catch((error) => {
         return res.status(500).json({ error });
