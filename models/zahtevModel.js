@@ -37,7 +37,7 @@ const zahtevSchema = new Schema({
     },
     podbroj: {
         type: Number,
-        required: true,
+        required: false,
     },
     katastarskaOpstina: {
         type: String,
