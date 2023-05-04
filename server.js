@@ -37,6 +37,7 @@ app.get("/zahtevi/:id", async (req, res) => {
 app.post("/zahtevi", async (req, res) => {
   try {
     const zahtev = await Zahtev.create(req.body);
+    const { id } = req.params
 
     res.status(200).json(zahtev)
 
@@ -53,13 +54,13 @@ app.post("/zahtevi", async (req, res) => {
     let message = {
       from: process.env.EMAIL,
       to: "jocikam738@gmail.com, informacijaolokaciji@bauprojekt.rs, milan89vucinic@gmail.com",
-      subject: "Novi Zahtev",
+      subject: ` Zahtev za informaciju o lokaciji ID: ${id}`,
       html: `
       <div style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
         <div>
-          <span style="color:#4b5563; font-size: 1rem; font-weight: 400; line-height: 1.5rem;">Zahtevi:</span>
+          <span style="color:#4b5563; font-size: 1rem; font-weight: 400; line-height: 1.5rem;">Parcele:</span>
           <div style="margin-left: 1rem;">
-              <span style="color:#4b5563; font-size: 1rem; font-weight: 400; line-height: 1.5rem;">Zahtev 1:</span>
+              <span style="color:#4b5563; font-size: 1rem; font-weight: 400; line-height: 1.5rem;">Parcela 1:</span>
               <div style="margin-left: 1rem;">
                   <div>
                       <span style="color:#4b5563; font-size: 1rem; font-weight: 400; line-height: 1.5rem;">Broj parcele:</span>
@@ -76,7 +77,7 @@ app.post("/zahtevi", async (req, res) => {
               </div>
           </div>
           <div style="margin-left: 1rem; display:${req.body.parcele[1] ? 'block' : 'none'}">
-              <span style="color:#4b5563; font-size: 1rem; font-weight: 400; line-height: 1.5rem;">Zahtev 2:</span>
+              <span style="color:#4b5563; font-size: 1rem; font-weight: 400; line-height: 1.5rem;">Parcela 2:</span>
               <div style="margin-left: 1rem;">
                   <div>
                       <span style="color:#4b5563; font-size: 1rem; font-weight: 400; line-height: 1.5rem;">Broj parcele:</span>
@@ -93,7 +94,7 @@ app.post("/zahtevi", async (req, res) => {
               </div>
           </div>
           <div style="margin-left: 1rem; display:${req.body.parcele[2] ? 'block' : 'none'}">
-              <span style="color:#4b5563; font-size: 1rem; font-weight: 400; line-height: 1.5rem;">Zahtev 3:</span>
+              <span style="color:#4b5563; font-size: 1rem; font-weight: 400; line-height: 1.5rem;">Parcela 3:</span>
               <div style="margin-left: 1rem;">
                   <div>
                       <span style="color:#4b5563; font-size: 1rem; font-weight: 400; line-height: 1.5rem;">Broj parcele:</span>
@@ -110,7 +111,7 @@ app.post("/zahtevi", async (req, res) => {
               </div>
           </div>
           <div style="margin-left: 1rem; display:${req.body.parcele[3] ? 'block' : 'none'}">
-              <span style="color:#4b5563; font-size: 1rem; font-weight: 400; line-height: 1.5rem;">Zahtev 4:</span>
+              <span style="color:#4b5563; font-size: 1rem; font-weight: 400; line-height: 1.5rem;">Parcela 4:</span>
               <div style="margin-left: 1rem;">
                   <div>
                       <span style="color:#4b5563; font-size: 1rem; font-weight: 400; line-height: 1.5rem;">Broj parcele:</span>
@@ -127,7 +128,7 @@ app.post("/zahtevi", async (req, res) => {
               </div>
           </div>
           <div style="margin-left: 1rem; display:${req.body.parcele[4] ? 'block' : 'none'}">
-              <span style="color:#4b5563; font-size: 1rem; font-weight: 400; line-height: 1.5rem;">Zahtev 5:</span>
+              <span style="color:#4b5563; font-size: 1rem; font-weight: 400; line-height: 1.5rem;">Parcela 5:</span>
               <div style="margin-left: 1rem;">
                   <div>
                       <span style="color:#4b5563; font-size: 1rem; font-weight: 400; line-height: 1.5rem;">Broj parcele:</span>
@@ -144,7 +145,7 @@ app.post("/zahtevi", async (req, res) => {
               </div>
           </div>
           <div style="margin-left: 1rem; display:${req.body.parcele[5] ? 'block' : 'none'}">
-              <span style="color:#4b5563; font-size: 1rem; font-weight: 400; line-height: 1.5rem;">Zahtev 6:</span>
+              <span style="color:#4b5563; font-size: 1rem; font-weight: 400; line-height: 1.5rem;">Parcela 6:</span>
               <div style="margin-left: 1rem;">
                   <div>
                       <span style="color:#4b5563; font-size: 1rem; font-weight: 400; line-height: 1.5rem;">Broj parcele:</span>
@@ -161,7 +162,7 @@ app.post("/zahtevi", async (req, res) => {
               </div>
           </div>
           <div style="margin-left: 1rem; display:${req.body.parcele[6] ? 'block' : 'none'}">
-              <span style="color:#4b5563; font-size: 1rem; font-weight: 400; line-height: 1.5rem;">Zahtev 7:</span>
+              <span style="color:#4b5563; font-size: 1rem; font-weight: 400; line-height: 1.5rem;">Parcela 7:</span>
               <div style="margin-left: 1rem;">
                   <div>
                       <span style="color:#4b5563; font-size: 1rem; font-weight: 400; line-height: 1.5rem;">Broj parcele:</span>
@@ -178,7 +179,7 @@ app.post("/zahtevi", async (req, res) => {
               </div>
           </div>
           <div style="margin-left: 1rem; display:${req.body.parcele[7] ? 'block' : 'none'}">
-              <span style="color:#4b5563; font-size: 1rem; font-weight: 400; line-height: 1.5rem;">Zahtev 8:</span>
+              <span style="color:#4b5563; font-size: 1rem; font-weight: 400; line-height: 1.5rem;">Parcela 8:</span>
               <div style="margin-left: 1rem;">
                   <div>
                       <span style="color:#4b5563; font-size: 1rem; font-weight: 400; line-height: 1.5rem;">Broj parcele:</span>
@@ -195,7 +196,7 @@ app.post("/zahtevi", async (req, res) => {
               </div>
           </div>
           <div style="margin-left: 1rem; display:${req.body.parcele[8] ? 'block' : 'none'}">
-              <span style="color:#4b5563; font-size: 1rem; font-weight: 400; line-height: 1.5rem;">Zahtev 9:</span>
+              <span style="color:#4b5563; font-size: 1rem; font-weight: 400; line-height: 1.5rem;">Parcela 9:</span>
               <div style="margin-left: 1rem;">
                   <div>
                       <span style="color:#4b5563; font-size: 1rem; font-weight: 400; line-height: 1.5rem;">Broj parcele:</span>
@@ -212,7 +213,7 @@ app.post("/zahtevi", async (req, res) => {
               </div>
           </div>
           <div style="margin-left: 1rem; display:${req.body.parcele[9] ? 'block' : 'none'}">
-              <span style="color:#4b5563; font-size: 1rem; font-weight: 400; line-height: 1.5rem;">Zahtev 10:</span>
+              <span style="color:#4b5563; font-size: 1rem; font-weight: 400; line-height: 1.5rem;">Parcela 10:</span>
               <div style="margin-left: 1rem;">
                   <div>
                       <span style="color:#4b5563; font-size: 1rem; font-weight: 400; line-height: 1.5rem;">Broj parcele:</span>
