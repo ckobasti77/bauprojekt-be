@@ -37,8 +37,6 @@ app.get("/zahtevi/:id", async (req, res) => {
 app.post("/zahtevi", async (req, res) => {
   try {
     const zahtev = await Zahtev.create(req.body);
-    const { id } = req.params
-
     res.status(200).json(zahtev)
 
     let config = {
@@ -54,7 +52,7 @@ app.post("/zahtevi", async (req, res) => {
     let message = {
       from: process.env.EMAIL,
       to: "jocikam738@gmail.com, informacijaolokaciji@bauprojekt.rs, milan89vucinic@gmail.com",
-      subject: ` Zahtev za informaciju o lokaciji ID: ${id}`,
+      subject: ` Zahtev za informaciju o lokaciji`,
       html: `
       <div style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
         <div>
