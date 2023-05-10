@@ -51,8 +51,8 @@ app.post("/zahtevi", async (req, res) => {
 
     let message = {
       from: process.env.EMAIL,
-      to: "jocikam738@gmail.com, informacijaolokaciji@bauprojekt.rs, milan89vucinic@gmail.com",
-      subject: ` Zahtev za informaciju o lokaciji`,
+      to: "informacijaolokaciji@bauprojekt.rs",
+      subject: `Zahtev za informaciju o lokaciji`,
       html: `
       <div style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
         <div>
